@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Sun, Shield, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-solar.jpg";
 
 const highlights = [
@@ -46,18 +47,18 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
         >
-          <a
-            href="#contact"
+          <Link
+            to="/consultation"
             className="gradient-solar text-primary-foreground px-8 py-4 rounded-xl text-lg font-semibold shadow-solar hover:opacity-90 transition-opacity animate-pulse-glow"
           >
             Book Free Consultation
-          </a>
-          <a
-            href="#packages"
+          </Link>
+          <Link
+            to="/packages"
             className="bg-secondary-foreground/10 border border-secondary-foreground/30 text-secondary-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:bg-secondary-foreground/20 transition-colors backdrop-blur-sm"
           >
             View Packages
-          </a>
+          </Link>
         </motion.div>
 
         <motion.div
