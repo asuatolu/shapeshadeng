@@ -3,6 +3,7 @@ import { Search, PenTool, Wrench, ShoppingBag } from "lucide-react";
 import consultationImg from "@/assets/consultation.jpg";
 import designImg from "@/assets/design.jpg";
 import installationImg from "@/assets/installation.jpg";
+import salesImg from "@/assets/sales-supply.jpg";
 
 const services = [
   {
@@ -27,7 +28,7 @@ const services = [
     icon: ShoppingBag,
     title: "Sales & Supply",
     description: "Purchase inverters, solar panels, batteries (tubular & lithium), and all accessories directly from us.",
-    image: null,
+    image: salesImg,
   },
 ];
 
