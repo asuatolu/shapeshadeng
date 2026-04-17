@@ -1,36 +1,13 @@
 import { motion } from "framer-motion";
 import { Search, PenTool, Wrench, ShoppingBag } from "lucide-react";
-import consultationImg from "@/assets/consultation.jpg";
-import designImg from "@/assets/design.jpg";
-import installationImg from "@/assets/installation.jpg";
-import salesImg from "@/assets/sales-supply.jpg";
+import { services } from "@/data/homeContent";
 
-const services = [
-  {
-    icon: Search,
-    title: "Consultation",
-    description: "Free site assessment and power audit to determine the right solar system for your needs and budget.",
-    image: consultationImg,
-  },
-  {
-    icon: PenTool,
-    title: "System Design",
-    description: "Custom solar system design by our engineers, optimized for your power consumption and roof space.",
-    image: designImg,
-  },
-  {
-    icon: Wrench,
-    title: "Installation",
-    description: "Professional installation by certified technicians with quality equipment and 1-5 year warranty.",
-    image: installationImg,
-  },
-  {
-    icon: ShoppingBag,
-    title: "Sales & Supply",
-    description: "Purchase inverters, solar panels, batteries (tubular & lithium), and all accessories directly from us.",
-    image: salesImg,
-  },
-];
+const iconMap = {
+  Search,
+  PenTool,
+  Wrench,
+  ShoppingBag,
+};
 
 const ServicesSection = () => {
   return (
@@ -52,36 +29,39 @@ const ServicesSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, i) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group bg-card rounded-2xl border border-border overflow-hidden hover:shadow-card-hover transition-shadow duration-300"
-            >
-              {service.image && (
-                <div className="h-48 overflow-hidden">
+          {services.map((service, i) => {
+            const Icon = iconMap[service.icon];
+
+            return (
+              <motion.article
+                key={service.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group bg-card rounded-2xl border border-border overflow-hidden hover:shadow-card-hover transition-shadow duration-300"
+              >
+                <div className="aspect-[4/3] overflow-hidden bg-muted">
                   <img
                     src={service.image}
-                    alt={service.title}
+                    alt={service.alt}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                     width={800}
                     height={600}
                   />
                 </div>
-              )}
-              <div className="p-6">
-                <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center mb-4">
-                  <service.icon className="w-6 h-6 text-accent-foreground" />
+                <div className="p-6">
+                  <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-accent-foreground" />
+                  </div>
+                  <h3 className="font-heading text-xl font-semibold text-foreground mb-2">{service.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-3">{service.description}</p>
+                  <p className="text-sm text-foreground/80 leading-relaxed">{service.story}</p>
                 </div>
-                <h3 className="font-heading text-xl font-semibold text-foreground mb-2">{service.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
-              </div>
-            </motion.div>
-          ))}
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </section>
