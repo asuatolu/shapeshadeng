@@ -1,32 +1,6 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
-
-const testimonials = [
-  {
-    name: "Adebayo O.",
-    location: "Lekki, Lagos",
-    text: "Shape and Shade HiTech installed a 5KVA system in my home. We no longer depend on generators. The team was professional and the installation was completed in just 2 days.",
-    rating: 5,
-  },
-  {
-    name: "Mrs. Funke A.",
-    location: "Akure, Ondo",
-    text: "Excellent service from consultation to installation. They helped me choose the right system for my budget and the solar panels have been performing great for over a year now.",
-    rating: 5,
-  },
-  {
-    name: "Chukwu E.",
-    location: "Amuwo Odofin, Lagos",
-    text: "Very reliable company. I purchased a 3.6KVA system and the lithium battery option has been outstanding. Their after-sales support is top-notch.",
-    rating: 5,
-  },
-  {
-    name: "Engr. Bola T.",
-    location: "Ikeja, Lagos",
-    text: "I needed a solar solution for my office and Shape & Shade delivered perfectly. The 6.2KVA system powers everything including our AC units. Highly recommended!",
-    rating: 5,
-  },
-];
+import { testimonials } from "@/data/homeContent";
 
 const TestimonialsSection = () => {
   return (
@@ -44,28 +18,45 @@ const TestimonialsSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {testimonials.map((t, i) => (
-            <motion.div
+            <motion.article
               key={t.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-card border border-border rounded-2xl p-6 relative"
+              className="bg-card border border-border rounded-3xl overflow-hidden"
             >
-              <Quote className="w-8 h-8 text-primary/20 absolute top-4 right-4" />
-              <div className="flex gap-1 mb-3">
-                {Array.from({ length: t.rating }).map((_, j) => (
-                  <Star key={j} className="w-4 h-4 fill-primary text-primary" />
-                ))}
+              <div className="grid sm:grid-cols-[180px_1fr] h-full">
+                <div className="bg-muted aspect-[4/3] sm:aspect-auto">
+                  <img
+                    src={t.image}
+                    alt={t.alt}
+                    loading="lazy"
+                    width={800}
+                    height={600}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6 relative">
+                  <Quote className="w-8 h-8 text-primary/20 absolute top-4 right-4" />
+                  <div className="flex gap-1 mb-3">
+                    {Array.from({ length: t.rating }).map((_, j) => (
+                      <Star key={j} className="w-4 h-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-foreground mb-3">
+                    {t.project}
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">"{t.text}"</p>
+                  <div>
+                    <p className="font-heading font-semibold text-foreground text-sm">{t.name}</p>
+                    <p className="text-xs text-muted-foreground">{t.location}</p>
+                  </div>
+                </div>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">"{t.text}"</p>
-              <div>
-                <p className="font-heading font-semibold text-foreground text-sm">{t.name}</p>
-                <p className="text-xs text-muted-foreground">{t.location}</p>
-              </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>
