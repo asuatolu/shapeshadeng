@@ -1,6 +1,52 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { MapPin } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 import { photoAlbums } from "@/data/homeContent";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
+const ProjectSlider = ({ album }: { album: (typeof photoAlbums)[number] }) => {
+  const plugin = useRef(Autoplay({ delay: 4500, stopOnInteraction: true }));
+
+  return (
+    <Carousel
+      opts={{ loop: true, align: "start" }}
+      plugins={[plugin.current]}
+      className="relative"
+    >
+      <CarouselContent>
+        {album.photos.map((photo) => (
+          <CarouselItem key={photo.caption}>
+            <figure className="relative aspect-[16/10] bg-muted overflow-hidden rounded-2xl">
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                loading="lazy"
+                width={1600}
+                height={1000}
+                className="w-full h-full object-cover"
+              />
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/85 via-foreground/40 to-transparent p-5 pt-16">
+                <p className="text-sm md:text-base text-background font-medium leading-snug">
+                  {photo.caption}
+                </p>
+              </figcaption>
+            </figure>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious className="left-3 top-1/2 -translate-y-1/2 bg-background/90 border-border h-10 w-10" />
+      <CarouselNext className="right-3 top-1/2 -translate-y-1/2 bg-background/90 border-border h-10 w-10" />
+    </Carousel>
+  );
+};
 
 const GallerySection = () => {
   return (
@@ -17,64 +63,44 @@ const GallerySection = () => {
             Project Gallery
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Real project albums showing how our work moves from site prep and equipment setup to clean, finished solar delivery.
+            Browse real project albums showing how each job moves from site prep and equipment setup to clean, finished solar delivery.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="space-y-16 max-w-5xl mx-auto">
           {photoAlbums.map((album, i) => (
             <motion.article
               key={album.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="rounded-3xl overflow-hidden border border-border bg-card shadow-sm"
+              transition={{ delay: i * 0.05 }}
+              className="bg-card border border-border rounded-3xl overflow-hidden shadow-sm"
             >
-              <div className="aspect-[4/3] bg-muted overflow-hidden">
-                <img
-                  src={album.cover}
-                  alt={album.coverAlt}
-                  loading="lazy"
-                  width={1200}
-                  height={900}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="p-6">
+              <header className="px-6 md:px-8 pt-7 pb-5 border-b border-border">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-foreground mb-2">
                   Photo Album
                 </p>
-                <h3 className="font-heading font-bold text-2xl text-foreground mb-1">{album.title}</h3>
-                <p className="text-sm text-muted-foreground mb-3">{album.location}</p>
-                <p className="text-sm text-foreground/80 leading-relaxed mb-5">{album.story}</p>
-
-                <div className="grid grid-cols-3 gap-3">
-                  {album.photos.map((photo) => (
-                    <figure key={photo.caption} className="space-y-2">
-                      <div className="aspect-square rounded-xl overflow-hidden bg-muted">
-                        <img
-                          src={photo.src}
-                          alt={photo.alt}
-                          loading="lazy"
-                          width={600}
-                          height={600}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <figcaption className="text-[11px] leading-snug text-muted-foreground">
-                        {photo.caption}
-                      </figcaption>
-                    </figure>
-                  ))}
+                <h3 className="font-heading font-bold text-2xl md:text-3xl text-foreground mb-2">
+                  {album.title}
+                </h3>
+                <div className="flex items-center gap-1.5 text-sm text-muted-foreground mb-3">
+                  <MapPin className="w-4 h-4" />
+                  <span>{album.location}</span>
                 </div>
+                <p className="text-sm md:text-base text-foreground/80 leading-relaxed">
+                  {album.story}
+                </p>
+              </header>
+
+              <div className="p-4 md:p-6">
+                <ProjectSlider album={album} />
               </div>
             </motion.article>
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-14">
           <Link
             to="/consultation"
             className="inline-block gradient-solar text-primary-foreground px-8 py-3 rounded-xl font-semibold shadow-solar hover:opacity-90 transition-opacity"

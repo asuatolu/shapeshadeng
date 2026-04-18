@@ -26,35 +26,21 @@ const TestimonialsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-card border border-border rounded-3xl overflow-hidden"
+              className="bg-card border border-border rounded-3xl p-8 relative"
             >
-              <div className="grid sm:grid-cols-[180px_1fr] h-full">
-                <div className="bg-muted aspect-[4/3] sm:aspect-auto">
-                  <img
-                    src={t.image}
-                    alt={t.alt}
-                    loading="lazy"
-                    width={800}
-                    height={600}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-6 relative">
-                  <Quote className="w-8 h-8 text-primary/20 absolute top-4 right-4" />
-                  <div className="flex gap-1 mb-3">
-                    {Array.from({ length: t.rating }).map((_, j) => (
-                      <Star key={j} className="w-4 h-4 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-foreground mb-3">
-                    {t.project}
-                  </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">"{t.text}"</p>
-                  <div>
-                    <p className="font-heading font-semibold text-foreground text-sm">{t.name}</p>
-                    <p className="text-xs text-muted-foreground">{t.location}</p>
-                  </div>
-                </div>
+              <Quote className="w-10 h-10 text-primary/15 absolute top-6 right-6" />
+              <div className="flex gap-1 mb-4">
+                {Array.from({ length: t.rating }).map((_, j) => (
+                  <Star key={j} className="w-4 h-4 fill-primary text-primary" />
+                ))}
+              </div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-foreground mb-4">
+                {t.project}
+              </p>
+              <p className="text-base text-foreground/80 leading-relaxed mb-6">"{t.text}"</p>
+              <div className="pt-4 border-t border-border">
+                <p className="font-heading font-semibold text-foreground">{t.name}</p>
+                <p className="text-sm text-muted-foreground">{t.location}</p>
               </div>
             </motion.article>
           ))}
