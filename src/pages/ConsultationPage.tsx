@@ -43,11 +43,27 @@ const ConsultationPage = () => {
       return;
     }
     setLoading(true);
+    const lines = [
+      `*New Consultation Booking*`,
+      ``,
+      `*Name:* ${form.name}`,
+      `*Phone:* ${form.phone}`,
+      form.email ? `*Email:* ${form.email}` : null,
+      `*Location:* ${form.location}`,
+      `*Building Type:* ${form.buildingType}`,
+      form.serviceType ? `*Service Type:* ${form.serviceType}` : null,
+      form.appliances.length ? `*Appliances:* ${form.appliances.join(", ")}` : null,
+      form.budget ? `*Budget:* ${form.budget}` : null,
+      form.consultationType ? `*Consultation Type:* ${form.consultationType}` : null,
+      form.message ? `\n*Notes:*\n${form.message}` : null,
+    ].filter(Boolean).join("\n");
+    const url = `https://wa.me/2347065646005?text=${encodeURIComponent(lines)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
     setTimeout(() => {
       setLoading(false);
-      toast({ title: "Consultation Booked!", description: "Thank you! We'll reach out within 24 hours to confirm your appointment." });
+      toast({ title: "Opening WhatsApp...", description: "Please send the pre-filled message to complete your booking." });
       setForm({ name: "", phone: "", email: "", location: "", buildingType: "", serviceType: "", appliances: [], budget: "", consultationType: "", message: "" });
-    }, 1500);
+    }, 800);
   };
 
   const inputClass =
