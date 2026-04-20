@@ -19,11 +19,22 @@ const ContactPage = () => {
       return;
     }
     setLoading(true);
+    const lines = [
+      `*New Contact Enquiry*`,
+      ``,
+      `*Name:* ${form.name}`,
+      `*Phone:* ${form.phone}`,
+      form.email ? `*Email:* ${form.email}` : null,
+      form.service ? `*Service Needed:* ${form.service}` : null,
+      form.message ? `\n*Message:*\n${form.message}` : null,
+    ].filter(Boolean).join("\n");
+    const url = `https://wa.me/2347065646005?text=${encodeURIComponent(lines)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
     setTimeout(() => {
       setLoading(false);
-      toast({ title: "Message Sent!", description: "Thank you! We'll get back to you within 24 hours." });
+      toast({ title: "Opening WhatsApp...", description: "Please send the pre-filled message to complete your enquiry." });
       setForm({ name: "", phone: "", email: "", service: "", message: "" });
-    }, 1500);
+    }, 800);
   };
 
   const inputClass =
