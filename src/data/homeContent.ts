@@ -79,6 +79,30 @@ export const services: ServiceItem[] = [
 
 export const photoAlbums: PhotoAlbum[] = [
   {
+    title: "Real Customer Installations",
+    location: "Indoor inverter & lithium battery setups, Nigeria",
+    story: "Live photos from completed jobs — SMS hybrid inverters, 10kWh lithium iron batteries, and Pattern backup units mounted, wired, and commissioned in real Nigerian homes.",
+    cover: projectSmsHybrid6kw,
+    coverAlt: "SMS 6.2KW hybrid inverter and 10kWh lithium battery installed in a Nigerian home.",
+    photos: [
+      {
+        src: projectSmsHybrid6kw,
+        alt: "SMS Sunmate 6.2KW hybrid inverter paired with a 51.2V 10kWh lithium iron battery, fully wired with surge protection.",
+        caption: "SMS 6.2KW hybrid inverter + 10kWh lithium battery — clean wiring with surge protection.",
+      },
+      {
+        src: projectSms10kwhLithium,
+        alt: "Wall-mounted SMS 10kWh lithium iron battery showing 70 percent state of charge beside a hybrid inverter in Nigeria.",
+        caption: "10kWh lithium battery holding charge beside the hybrid inverter unit.",
+      },
+      {
+        src: projectInverterBatteryResidential,
+        alt: "SMS solar inverter and Pattern lithium backup unit installed in a Nigerian living room with neat cable management.",
+        caption: "SMS inverter and Pattern lithium backup neatly installed in a residential space.",
+      },
+    ],
+  },
+  {
     title: "Rooftop Home Installation",
     location: "Residential project, Lagos",
     story: "A full story from roof preparation to mounted panels and a finished system ready for everyday power needs.",
@@ -159,8 +183,6 @@ export const testimonials: TestimonialItem[] = [
     text: "Shape and Shade HiTech installed a 5KVA system in my home. We no longer depend on generators. The team was professional and the installation was completed in just 2 days.",
     rating: 5,
     project: "Residential rooftop installation",
-    image: galleryPanelsClose,
-    alt: "Residential rooftop solar panel installation in Lagos.",
   },
   {
     name: "Mrs. Funke A.",
@@ -168,8 +190,6 @@ export const testimonials: TestimonialItem[] = [
     text: "Excellent service from consultation to installation. They helped me choose the right system for my budget and the solar panels have been performing great for over a year now.",
     rating: 5,
     project: "Consultation and system design",
-    image: consultationPowerAudit,
-    alt: "Solar site assessment setup with inverter and battery equipment in Nigeria.",
   },
   {
     name: "Chukwu E.",
@@ -177,8 +197,6 @@ export const testimonials: TestimonialItem[] = [
     text: "Very reliable company. I purchased a 3.6KVA system and the lithium battery option has been outstanding. Their after-sales support is top-notch.",
     rating: 5,
     project: "Battery and inverter supply",
-    image: salesSupplyBatteryBank,
-    alt: "Indoor battery bank and inverter system supplied and installed in Nigeria.",
   },
   {
     name: "Engr. Bola T.",
@@ -186,7 +204,5 @@ export const testimonials: TestimonialItem[] = [
     text: "I needed a solar solution for my office and Shape & Shade delivered perfectly. The 6.2KVA system powers everything including our AC units. Highly recommended!",
     rating: 5,
     project: "Commercial array delivery",
-    image: galleryCommercialArray,
-    alt: "Commercial solar array installed on a large roof in Nigeria.",
   },
 ];
