@@ -72,36 +72,12 @@ export const services: ServiceItem[] = [
     title: "Sales & Supply",
     description: "Purchase inverters, solar panels, batteries (tubular & lithium), and all accessories directly from us.",
     story: "We supply dependable batteries, inverters, panels, and accessories that are ready for immediate deployment on residential and commercial projects.",
-    image: salesSupplyBatteryBank,
-    alt: "Battery bank and solar inverter equipment available for supply and installation in Nigeria.",
+    image: projectSms10kwhLithium,
+    alt: "SMS 10kWh lithium iron battery and hybrid inverter available for supply and installation in Nigeria.",
   },
 ];
 
 export const photoAlbums: PhotoAlbum[] = [
-  {
-    title: "Real Customer Installations",
-    location: "Indoor inverter & lithium battery setups, Nigeria",
-    story: "Live photos from completed jobs — SMS hybrid inverters, 10kWh lithium iron batteries, and Pattern backup units mounted, wired, and commissioned in real Nigerian homes.",
-    cover: projectSmsHybrid6kw,
-    coverAlt: "SMS 6.2KW hybrid inverter and 10kWh lithium battery installed in a Nigerian home.",
-    photos: [
-      {
-        src: projectSmsHybrid6kw,
-        alt: "SMS Sunmate 6.2KW hybrid inverter paired with a 51.2V 10kWh lithium iron battery, fully wired with surge protection.",
-        caption: "SMS 6.2KW hybrid inverter + 10kWh lithium battery — clean wiring with surge protection.",
-      },
-      {
-        src: projectSms10kwhLithium,
-        alt: "Wall-mounted SMS 10kWh lithium iron battery showing 70 percent state of charge beside a hybrid inverter in Nigeria.",
-        caption: "10kWh lithium battery holding charge beside the hybrid inverter unit.",
-      },
-      {
-        src: projectInverterBatteryResidential,
-        alt: "SMS solar inverter and Pattern lithium backup unit installed in a Nigerian living room with neat cable management.",
-        caption: "SMS inverter and Pattern lithium backup neatly installed in a residential space.",
-      },
-    ],
-  },
   {
     title: "Rooftop Home Installation",
     location: "Residential project, Lagos",
