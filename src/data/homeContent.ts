@@ -8,6 +8,9 @@ import gallerySolarCarport from "@/assets/story/gallery-solar-carport.jpg";
 import galleryRooftopFinish from "@/assets/story/gallery-rooftop-finish.jpg";
 import galleryCommercialArray from "@/assets/story/gallery-commercial-array.jpg";
 import galleryInverterInstall from "@/assets/story/gallery-inverter-install.jpg";
+import projectInverterBatteryResidential from "@/assets/projects/inverter-battery-residential.jpg";
+import projectSmsHybrid6kw from "@/assets/projects/sms-hybrid-6kw-installation.jpg";
+import projectSms10kwhLithium from "@/assets/projects/sms-10kwh-lithium-setup.jpg";
 
 export type ServiceItem = {
   icon: "Search" | "PenTool" | "Wrench" | "ShoppingBag";
@@ -37,8 +40,6 @@ export type TestimonialItem = {
   text: string;
   rating: number;
   project: string;
-  image: string;
-  alt: string;
 };
 
 export const services: ServiceItem[] = [
