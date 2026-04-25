@@ -11,6 +11,7 @@ import galleryInverterInstall from "@/assets/story/gallery-inverter-install.jpg"
 import projectInverterBatteryResidential from "@/assets/projects/inverter-battery-residential.jpg";
 import projectSmsHybrid6kw from "@/assets/projects/sms-hybrid-6kw-installation.jpg";
 import projectSms10kwhLithium from "@/assets/projects/sms-10kwh-lithium-setup.jpg";
+import salesSupplySmsCover from "@/assets/projects/sales-supply-sms-inverter-battery.jpg";
 
 export type ServiceItem = {
   icon: "Search" | "PenTool" | "Wrench" | "ShoppingBag";
@@ -72,8 +73,8 @@ export const services: ServiceItem[] = [
     title: "Sales & Supply",
     description: "Purchase inverters, solar panels, batteries (tubular & lithium), and all accessories directly from us.",
     story: "We supply dependable batteries, inverters, panels, and accessories that are ready for immediate deployment on residential and commercial projects.",
-    image: projectSms10kwhLithium,
-    alt: "SMS 10kWh lithium iron battery and hybrid inverter available for supply and installation in Nigeria.",
+    image: salesSupplySmsCover,
+    alt: "SMS 6.2KW hybrid inverter and 10kWh lithium iron battery installed with surge protection in a Nigerian home.",
   },
 ];
 
